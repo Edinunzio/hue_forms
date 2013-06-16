@@ -1,7 +1,16 @@
-from django.http import HttpResponse
+from django.template import RequestContext
+from django.shortcuts import render, render_to_response, redirect
+from django.utils import simplejson
+from django.conf import settings
+from django.http import HttpResponse, HttpResponseRedirect
+
+from datetime import datetime
+
+from beautifulhue.api import Bridge
+
 
 def main_page(request):
-    from beautifulhue.api import Bridge
+    
     output = '''
         <html>
             <head><title>%s</title></head>
@@ -14,4 +23,6 @@ def main_page(request):
            'Welcome to Django Bookmarks', 
            'Where you can store and share bookmarks!'
     )
-    return HttpResponse(output)
+    template = 'main.html'
+    return render(request, template, content_type="text/html")
+    #return HttpResponse(output)
