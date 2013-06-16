@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
 from widgets.views import *
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -7,6 +8,8 @@ from widgets.views import *
 urlpatterns = patterns('',
     # Examples:
      url(r'^$', main_page),
+     (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': '/home/elizabeth/workspace/hue_forms/static'}),
     # url(r'^hue_forms/', include('hue_forms.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
