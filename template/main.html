@@ -40,26 +40,28 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-    	<div class="row-fluid">
-		    <div class="span2">
-		      <!--Sidebar content-->
-		    </div>
-		    <div class="span10">
-		      <h1>Hue Forms</h1>
-		    </div>
-		  </div>
+    <div class="container">
 
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" class="input-block-level" placeholder="Email address">
+        <input type="password" class="input-block-level" placeholder="Password">
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+      </form>
       
-      
+      <!-- <span class=" something 12? i want to make a footer 
+      so i can use html5 address for my contact info -->
 
     </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{STATIC_URL}}js/bootstrap.js"></script>
-    
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
 
   </body>
 </html>
