@@ -1,12 +1,12 @@
 from django.conf.urls import patterns, include, url
-
+from widgets.views import *
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'hue_forms.views.home', name='home'),
+     url(r'^$', main_page),
     # url(r'^hue_forms/', include('hue_forms.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
