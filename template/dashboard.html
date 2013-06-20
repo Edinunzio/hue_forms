@@ -19,19 +19,57 @@
     </head>
 
   <body>
-
+  	
+		    	
+		    
     <div class="row">
 		<div class="span12">
+		
 		    <div class="container">
-		        <h2>Dashboard</h2>
-		        <hr>
+		    <div class="navbar">
+		    		<div class="navbar-inner">
+		    			<ul class="nav">
+		    				
+			    			<li class="active"><a href="#">Dashboard</a></li>
+			    			<li><a href="/lights/">Lights</a></li>
+			    			<li><a href="/groups/">Groups</a></li>
+			    			<li><a href="/schedules/">Schedules</a></li>
+			    		</ul>
+			    	</div>
+			    </div>
 		        <h3>Configuration</h3>
 		        <dl class="dl-horizontal">
+		        <table class="table">
+		        <tr>
 		        {% for key, value in data.resource.config.items %}
-			        <dt>{{key}}</dt>
-			        <dd>{{value}}</dd>
+			        <td>{{key}}</td>
+			        {% if value.items %}
+			        	<td><!-- change dl to ul -->
+			        		<table class="table">
+		        				<tr>
+			        		{% for k, v in value.items %}
+			        			<dt>{{k}}</dt>
+			        			{% if v.items %}
+			        			<dl class="dl-horizontal">
+			        				{% for l, w in v.items %}
+			        					<dt>{{l}}</dt>
+			        					<dd>{{w}}</dd>
+			        				{% endfor %}
+			        			</dl>
+			        			{% else %}
+			        				<dd>{{v}}</dd>
+			        			{% endif %}
+			        		{% endfor %}
+		        			</dl>
+			        	</td>
+			        {% else %}
+			        <td>{{value}}</td>
+			        {% endif %}
 		        {% endfor %}
-		        </dl>
+		        </tr>
+		        </table>
+		        <hr>
+		        <h3>Lights</h3>
 		    </div> <!-- /container -->
 		</div>
 	</div>
