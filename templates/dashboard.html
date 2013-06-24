@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>hue_forms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="{{STATIC_URL}}css/bootstrap-responsive.css" rel="stylesheet">
+
+    </head>
+
+  <body>
+  	
+		    	
+		    
+    <div class="row">
+		<div class="span12">
+		
+		    <div class="container">
+		    <div class="navbar">
+		    		<div class="navbar-inner">
+		    			<ul class="nav">
+		    				
+			    			<li class="active"><a href="#">Dashboard</a></li>
+			    			<li><a href="/lights/">Lights</a></li>
+			    			<li><a href="/groups/">Groups</a></li>
+			    			<li><a href="/schedules/">Schedules</a></li>
+			    		</ul>
+			    	</div>
+			    </div>
+		        <h3>Configuration</h3>
+		        <dl class="dl-horizontal">
+		        <table class="table">
+		        <tr>
+		        {% for key, value in data.resource.config.items %}
+			        <td>{{key}}</td>
+			        {% if value.items %}
+			        	<td><!-- change dl to ul -->
+			        		<table class="table">
+		        				<tr>
+			        		{% for k, v in value.items %}
+			        			<dt>{{k}}</dt>
+			        			{% if v.items %}
+			        			<dl class="dl-horizontal">
+			        				{% for l, w in v.items %}
+			        					<dt>{{l}}</dt>
+			        					<dd>{{w}}</dd>
+			        				{% endfor %}
+			        			</dl>
+			        			{% else %}
+			        				<dd>{{v}}</dd>
+			        			{% endif %}
+			        		{% endfor %}
+		        			</dl>
+			        	</td>
+			        {% else %}
+			        <td>{{value}}</td>
+			        {% endif %}
+		        {% endfor %}
+		        </tr>
+		        </table>
+		        <hr>
+		        <h3>Lights</h3>
+		    </div> <!-- /container -->
+		</div>
+	</div>
+	<div class="row footer">
+		<div class="span12">
+			<address>
+				<strong>Elizabeth Di Nunzio</strong><br>
+				<a href="mailto:e.dinunzio@gmail.com">e.dinunzio@gmail.com</a>
+			</address>
+		</div>
+	</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+
+  </body>
+</html>
